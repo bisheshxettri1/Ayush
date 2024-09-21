@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>4YUS!!-!!/GODDD</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		#full-screen-image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100vh;
+			object-fit: cover;
+		}
+	</style>
+</head>
+<body>
+	<input type="file" id="image-upload" accept="image/*">
+	<img id="img.png" src="" alt="Full Screen Image">
+	
+	<script>
+		const imageUpload = document.getElementById('image-upload');
+		const fullScreenImage = document.getElementById('full-screen-image');
+		
+		imageUpload.addEventListener('change', (e) => {
+			const file = imageUpload.files[0];
+			const reader = new FileReader();
+			reader.onload = (event) => {
+				fullScreenImage.src = event.target.result;
+			};
+			reader.readAsDataURL(file);
+		});
+	</script>
+</body>
+</html>
